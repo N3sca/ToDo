@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/15f55d277b.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: Josefin Sans,sans-serif;
+    }
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .header{
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+    }
+    .header h1{
+        font-size: 35px;
+    }
+    .header i{
+        font-size: 30px;
+    }
+
+    .box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: transparent;
+        width: 80%;
+        height: auto;
+    }
+    .box h1{
+        display: flex;
+        align-items: start;
+        text-align: start;
+    }
+    .box .inputs{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: rgba(149,157,165,.3) 0px 8px 24px 4px;
+        padding-left: 17px;
+        margin-bottom: 1rem;
+        background-color: #fff;
+    }
+    .box .inputs input[type="text"]{
+        width: 100%;
+        border: none;
+        outline: none;
+        background: transparent;
+        padding: 23.5px 20px 20.5px;
+    }
+    .box .inputs i{
+        cursor: pointer;
+        font-size: 23px;
+    }
+    
+
+    .box .rest{
+        width: 100%;
+        box-shadow: rgba(149,157,165,.3) 0px 8px 24px 4px;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+    .box .rest .todo{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 17px;
+        border-bottom: 2px solid rgb(57, 58, 76);
+    }
+    .box .rest .todo p{
+        width: 100%;
+        padding: 12px;
+    }
+    .box .rest .todo i{
+        cursor: pointer;
+        font-size: 23px;
+    }
+
+    .box .rest .todostats{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background-color: #fff;
+        padding: 1rem;
+    }
+    .box .rest .todostats .middle{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .box .todostatsmobile{
+        display: none;
+        align-items: center;
+        justify-content:space-around;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: rgba(149,157,165,.3) 0px 8px 24px 4px;
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+
+    @media screen and (max-width: 768px){
+        .box .todostatsmobile{
+            display: flex;
+        }
+        .box .rest .todostats .middle{
+            display: none;
+        }
+    }
+
+</style>
+<body>
+   
+    <div class="header">
+        <h1>TODO LIST</h1>
+        <i class="fa-solid fa-moon"></i>
+    </div>
+
+    <div class="box">
+        <div class="inputs">
+            <i id="circleinput" class="fa-regular fa-circle" onmouseover="circleon('circleinput')" onmouseleave="circleoff('circleinput')"></i>
+            <input type="text" placeholder="Create a new todo">
+        </div>
+        <div class="rest">
+            <div class="todo">
+                <i id="circle1" class="fa-regular fa-circle" onmouseover="circleon('circle1')" onmouseleave="circleoff('circle1')"></i>
+                <p>That Stuff!</p>
+                <i class="fa-solid fa-x"></i>
+            </div>
+            <div class="todostats">
+                <div class="left">1 Item Left</div>
+                <div class="middle">
+                    <p>ALL</p>
+                    <p>Active</p>
+                    <p>Completed</p>
+                </div>
+                <div class="rigth">Clear TODO</div>
+            </div>
+        </div>
+        <div class="todostatsmobile">
+                <p>ALL</p>
+                <p>Active</p>
+                <p>Completed</p>
+        </div>
+    </div>
+
+<script>
+    function circleon(x){
+        document.getElementById(x).classList.replace("fa-circle", "fa-circle-xmark");
+    }
+    function circleoff(x){
+        document.getElementById(x).classList.replace("fa-circle-xmark", "fa-circle");
+    }
+</script>
+</body>
+</html>
