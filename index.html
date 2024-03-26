@@ -22,16 +22,16 @@
 
     <div class="box">
         <div class="inputs">
-            <i id="circleinput" class="fa-regular fa-circle" onmouseover="circleon('circleinput')" onmouseleave="circleoff('circleinput')"></i>
-            <input type="text" placeholder="Create a new todo">
+            <i id="circleinput" class="fa-regular fa-circle" onmouseover="circleon('circleinput')" onmouseleave="circleoff('circleinput')" onclick="inser(document.getElementById('todotext').value)"></i>
+            <input type="text" id="todotext" placeholder="Create a new todo">
         </div>
-        <div class="rest">
+        <div class="rest" id="todo">
             <div class="todo">
                 <i id="circle1" class="fa-regular fa-circle" onmouseover="circleon('circle1')" onmouseleave="circleoff('circle1')"></i>
                 <p>That Stuff!</p>
                 <i class="fa-solid fa-x"></i>
             </div>
-            <div class="todostats">
+            <div class="todostats" id="todostats">
                 <div class="left">1 Item Left</div>
                 <div class="middle">
                     <p>ALL</p>
@@ -64,6 +64,55 @@
     function circleoff(x){
         document.getElementById(x).classList.replace("fa-circle-xmark", "fa-circle");
     }
+
+    const input = document.getElementById("todotext");
+    input.addEventListener("keyup", logKey);
+    function logKey(e) {
+     if(e.keyCode == 13){
+        inser(document.getElementById("todotext").value);
+     }
+    }
+
+    function inser(x){
+
+        const antes = document.getElementById('todostats')
+        const td = document.createElement('div')
+        td.classList.add('todo')
+
+        const todoi = document.createElement('i')
+        todoi.id = "circle2"
+        todoi.classList.add("fa-regular")
+        todoi.classList.add("fa-circle")
+        todoi.setAttribute('onmouseover',"circleon('circle2')")
+        todoi.setAttribute('onmouseleave',"circleoff('circle2')")
+
+        const todop = document.createElement('p')
+        todop.classList.add("none")
+
+        const todi2 = document.createElement('i')
+        todi2.classList.add("fa-solid")
+        todi2.classList.add("fa-x")
+        todi2.id = "x"
+        
+        td.appendChild(todoi)
+        td.appendChild(todop)
+        td.appendChild(todi2)
+
+        td.getElementsByClassName("none")[0].textContent = x
+        document.getElementById("todo").insertBefore(td, antes)
+        document.getElementById('todotext').value = ""
+    }
+
+
+
+
+    
+
+    
+
+    
+
+
 </script>
 </body>
 </html>

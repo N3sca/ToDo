@@ -74,7 +74,10 @@
         align-items: center;
         width: 100%;
         padding: 17px;
-        border-bottom: 2px solid rgb(57, 58, 76);
+    }
+    .box .rest .todo:hover{
+        box-shadow: rgba(149,157,165,.3) 0px 8px 24px 4px;
+        cursor: pointer;
     }
     .box .rest .todo p{
         width: 100%;
@@ -92,6 +95,7 @@
         width: 100%;
         background-color: #fff;
         padding: 1rem;
+        border-top: 2px solid rgb(57, 58, 76);
     }
     .box .rest .todostats .middle{
         display: flex;
